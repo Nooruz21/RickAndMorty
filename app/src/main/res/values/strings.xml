@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RickAndM</string>
+    <string name="character_status">%1$s - %2$s</string>
+
+</resources>
