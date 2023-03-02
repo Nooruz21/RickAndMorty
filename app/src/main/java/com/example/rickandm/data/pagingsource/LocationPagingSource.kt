@@ -7,7 +7,7 @@ import com.example.rickandm.domain.model.locationmodel.Location
 
 class LocationPagingSource(
     private val service: RickAndMortyService,
-    name:String?
+    name: String?
 ) : BasePagingSource<LocationDto, Location>({
-    service.getAllLocation(it,name)
+    service.getAllLocation(it, name)
 })

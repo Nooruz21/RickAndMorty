@@ -6,7 +6,7 @@ import org.koin.dsl.module
 
 val dataModule = module {
 
-    single<RickAndMortyRepository>{
+    single<RickAndMortyRepository> {
         RIckAndMortyRepositoryImpl(get())
     }
 

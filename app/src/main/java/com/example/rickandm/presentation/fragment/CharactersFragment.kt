@@ -7,9 +7,9 @@ import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentCharactersBinding
+import com.example.rickandm.presentation.adapter.CharactersAdapter
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
-import com.example.rickandm.presentation.adapter.CharactersAdapter
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 

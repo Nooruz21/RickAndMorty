@@ -8,10 +8,12 @@ import androidx.paging.map
 import com.example.rickandm.domain.utils.Resource
 import com.example.rickandm.domain.utils.UiState
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModel:ViewModel() {
+abstract class BaseViewModel : ViewModel() {
     protected fun <T> Flow<Resource<T>>.collectFlow(_state: MutableStateFlow<UiState<T>>) {
         viewModelScope.launch(Dispatchers.IO) {
             this@collectFlow.collect { result ->

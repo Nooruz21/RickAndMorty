@@ -12,9 +12,9 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.viewbinding.ViewBinding
 import com.example.rickandm.R
 
-abstract class BaseAlertFragment <VB:ViewBinding>(
+abstract class BaseAlertFragment<VB : ViewBinding>(
     @LayoutRes private val layoutId: Int
-): AppCompatDialogFragment() {
+) : AppCompatDialogFragment() {
 
     protected abstract val binding: VB
 

@@ -2,12 +2,11 @@ package com.example.rickandm.presentation.fragment
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.rickandm.R
-
+import com.example.rickandm.databinding.FragmentFiltrBinding
+import com.example.rickandm.domain.model.filtermodel.CharacterFilter
 import com.example.rickandm.presentation.base.BaseAlertFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import com.example.rickandm.databinding.FragmentFiltrBinding
-import com.example.rickandm.domain.model.filtermodel.CharacterFilter
 
 class FilterFragment : BaseAlertFragment<FragmentFiltrBinding>(R.layout.fragment_filtr) {
     private var currentFilter = CharacterFilter()
@@ -15,16 +14,15 @@ class FilterFragment : BaseAlertFragment<FragmentFiltrBinding>(R.layout.fragment
     override val binding by viewBinding<FragmentFiltrBinding>()
 
 
-
-     override fun getCheckedFilter() {
-        getCheckedStatus()?.let{ binding.rgStatus.check(it) }
+    override fun getCheckedFilter() {
+        getCheckedStatus()?.let { binding.rgStatus.check(it) }
         getCheckedSpecies()?.let { binding.rgSpecies.check(it) }
         getCheckedGender()?.let { binding.rgGender.check(it) }
     }
 
-     override fun filterCheckId() {
-         requireDialog().setCancelable(true)
-         requireDialog().setCanceledOnTouchOutside(true)
+    override fun filterCheckId() {
+        requireDialog().setCancelable(true)
+        requireDialog().setCanceledOnTouchOutside(true)
         binding.rgStatus.setOnCheckedChangeListener { group, checkedId ->
             currentFilter.status = when (checkedId) {
                 R.id.status_alive -> "alive"
@@ -33,7 +31,7 @@ class FilterFragment : BaseAlertFragment<FragmentFiltrBinding>(R.layout.fragment
                 else -> null
             }
         }
-        binding.rgSpecies.setOnCheckedChangeListener {group, checkedId ->
+        binding.rgSpecies.setOnCheckedChangeListener { group, checkedId ->
             currentFilter.species = when (checkedId) {
                 R.id.species_alien -> "alien"
                 R.id.species_human -> "Human"
@@ -50,11 +48,13 @@ class FilterFragment : BaseAlertFragment<FragmentFiltrBinding>(R.layout.fragment
                 else -> null
             }
 
-        }}
+        }
+    }
+
     override fun initView() {
         binding.btnFiltr.setOnClickListener {
             currentFilter.apply {
-               viewModel.filter(status,species,gender)
+                viewModel.filter(status, species, gender)
             }
         }
         binding.btnClear.setOnClickListener {

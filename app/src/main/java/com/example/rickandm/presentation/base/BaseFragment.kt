@@ -16,19 +16,19 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
-abstract class BaseFragment<VB: ViewBinding> :Fragment() {
+abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
 
-    lateinit var binding:VB
+    lateinit var binding: VB
 
-    abstract fun inflate(layoutInflater: LayoutInflater):VB
+    abstract fun inflate(layoutInflater: LayoutInflater): VB
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =  inflate(layoutInflater)
+        binding = inflate(layoutInflater)
         return binding.root
     }
 
@@ -37,31 +37,33 @@ abstract class BaseFragment<VB: ViewBinding> :Fragment() {
         initView()
         initListener()
     }
-    open  fun initView() {}
-    open fun initListener(){}
 
-
+    open fun initView() {}
+    open fun initListener() {}
 
 
     protected fun <T> StateFlow<UiState<T>>.collectState(
-        onLoading: ()->Unit,
-        Error:(message:String)-> Unit,
-        onSuccess:(data:T) ->Unit
-    ){
-lifecycleScope.launch {
-    repeatOnLifecycle(Lifecycle.State.STARTED) {
-        this@collectState.collect { state ->
-            when (state) {
-                is UiState.Loading -> {
-                    onLoading()
-                }
-                is UiState.Error -> {
-                    Error(state.message)
-                }
-                is UiState.Success -> {
-                    onSuccess(state.data)
-                }
-                is UiState.Empty -> {
+        onLoading: () -> Unit,
+        Error: (message: String) -> Unit,
+        onSuccess: (data: T) -> Unit
+    ) {
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                this@collectState.collect { state ->
+                    when (state) {
+                        is UiState.Loading -> {
+                            onLoading()
+                        }
+                        is UiState.Error -> {
+                            Error(state.message)
+                        }
+                        is UiState.Success -> {
+                            onSuccess(state.data)
+                        }
+                        is UiState.Empty -> {
+
+                        }
+                    }
 
                 }
             }
@@ -69,14 +71,13 @@ lifecycleScope.launch {
         }
     }
 
-}
-    }
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         action: suspend (value: PagingData<T>) -> Unit
     ) {
         safeFlowGather(lifecycleState) { this.collectLatest { action(it) } }
     }
+
     fun safeFlowGather(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
         gather: suspend () -> Unit,

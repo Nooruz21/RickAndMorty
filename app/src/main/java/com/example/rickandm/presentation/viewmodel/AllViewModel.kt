@@ -44,7 +44,7 @@ class AllViewModel(
         species: String? = null
     ) = charactersUseCase(
         _getAllCharactersSearch.value,
-        _statusFilter.value, _genderFilter.value,_speciesFilter.value
+        _statusFilter.value, _genderFilter.value, _speciesFilter.value
     ).collectPagingRequest { it }
 
     fun getCharacterSearchQuery(newQuery: String?) {

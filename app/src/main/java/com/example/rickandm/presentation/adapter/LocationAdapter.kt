@@ -21,8 +21,6 @@ class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationView
             }
 
         }
-
-
     }
 
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {

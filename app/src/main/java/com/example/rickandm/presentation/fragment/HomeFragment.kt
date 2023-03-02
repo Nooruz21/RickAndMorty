@@ -2,11 +2,11 @@ package com.example.rickandm.presentation.fragment
 
 import android.view.LayoutInflater
 import android.widget.SearchView
+import com.example.rickandm.databinding.FragmentHomeBinding
+import com.example.rickandm.presentation.adapter.ViewPagerAdapter
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
-import com.example.rickandm.presentation.adapter.ViewPagerAdapter
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import com.example.rickandm.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val viewModel: AllViewModel by sharedViewModel()

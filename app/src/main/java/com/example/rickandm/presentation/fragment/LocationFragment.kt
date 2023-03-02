@@ -7,9 +7,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentLocationBinding
+import com.example.rickandm.presentation.adapter.LocationAdapter
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
-import com.example.rickandm.presentation.adapter.LocationAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel

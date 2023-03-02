@@ -10,16 +10,17 @@ import kotlinx.coroutines.flow.flowOn
 import java.io.IOException
 
 abstract class BaseRepository() {
-    protected  fun <T>  doRequest(request:suspend () -> T) = flow{
+    protected fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         try {
-            val data =  request()
+            val data = request()
             emit(Resource.Success(data))
-        }catch (ioException: IOException){
+        } catch (ioException: IOException) {
             emit(Resource.Error(ioException.localizedMessage ?: "hj"))
         }
 
     }.flowOn(Dispatchers.IO)
+
     internal fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,

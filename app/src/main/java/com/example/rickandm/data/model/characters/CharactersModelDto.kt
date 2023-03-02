@@ -1,11 +1,7 @@
 package com.example.rickandm.data.model.characters
 
 import com.example.rickandm.data.mapper.DataMapper
-import com.example.rickandm.domain.model.charactermodel.Info
-import com.example.rickandm.domain.model.charactermodel.Location
-import com.example.rickandm.domain.model.charactermodel.Character
-import com.example.rickandm.domain.model.charactermodel.Origin
-import com.example.rickandm.domain.model.charactermodel.Result
+import com.example.rickandm.domain.model.charactermodel.*
 
 data class CharactersModelDto(
     val info: InfoDto,

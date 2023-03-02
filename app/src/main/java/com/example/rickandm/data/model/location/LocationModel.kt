@@ -24,8 +24,8 @@ data class LocationDto(
     val residents: List<String>,
     val type: String,
     val url: String
-): DataMapper<Location> {
-    override fun toDomain()=  Location(
+) : DataMapper<Location> {
+    override fun toDomain() = Location(
         created, dimension, id, name, residents, type, url
     )
 }

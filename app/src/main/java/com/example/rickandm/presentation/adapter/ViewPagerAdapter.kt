@@ -8,7 +8,7 @@ import com.example.rickandm.presentation.fragment.EpisodeFragment
 import com.example.rickandm.presentation.fragment.LocationFragment
 
 
-class ViewPagerAdapter (fm: FragmentManager): FragmentPagerAdapter(fm){
+class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     private val COUNT = 3
 
     override fun getItem(position: Int): Fragment {

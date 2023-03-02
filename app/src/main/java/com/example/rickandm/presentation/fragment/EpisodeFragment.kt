@@ -6,9 +6,9 @@ import androidx.core.view.isVisible
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentEpisodeBinding
+import com.example.rickandm.presentation.adapter.EpisodeAdapter
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
-import com.example.rickandm.presentation.adapter.EpisodeAdapter
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -20,6 +20,7 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
         super.onCreate(savedInstanceState)
         adapter = EpisodeAdapter()
     }
+
     override fun inflate(layoutInflater: LayoutInflater): FragmentEpisodeBinding {
         return FragmentEpisodeBinding.inflate(layoutInflater)
     }
@@ -30,11 +31,10 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
 
         adapter.addLoadStateListener { loadStates ->
             binding.episodeRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
-            // binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
         }
 
         safeFlowGather {
-            viewModel.getEpisodePaging().collectPaging{
+            viewModel.getEpisodePaging().collectPaging {
                 adapter.submitData(it)
             }
         }
@@ -42,10 +42,11 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
 
     override fun initListener() {
         safeFlowGather {
-        viewModel.getAllEpisodeSearch.collectLatest {
-            viewModel.getEpisodePaging().collectPaging{
-                adapter.submitData(it)
+            viewModel.getAllEpisodeSearch.collectLatest {
+                viewModel.getEpisodePaging().collectPaging {
+                    adapter.submitData(it)
+                }
             }
-        }}
+        }
     }
 }

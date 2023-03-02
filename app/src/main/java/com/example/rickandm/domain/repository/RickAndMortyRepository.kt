@@ -8,10 +8,22 @@ import com.example.rickandm.domain.utils.Resource
 import kotlinx.coroutines.flow.Flow
 
 interface RickAndMortyRepository {
-   fun getAllCharacters(name:String?,status:String?,gender:String?,species:String?): Flow<PagingData<Result>>
-   fun getAllCharacter(name:String?,status:String?,gender:String?,species:String?): Flow<Resource<List<Result>>>
-   fun getAllEpisode(name:String?): Flow<PagingData<Episode>>
-   fun getAllLocation(name:String?): Flow<PagingData<Location>>
+    fun getAllCharacters(
+        name: String?,
+        status: String?,
+        gender: String?,
+        species: String?
+    ): Flow<PagingData<Result>>
+
+    fun getAllCharacter(
+        name: String?,
+        status: String?,
+        gender: String?,
+        species: String?
+    ): Flow<Resource<List<Result>>>
+
+    fun getAllEpisode(name: String?): Flow<PagingData<Episode>>
+    fun getAllLocation(name: String?): Flow<PagingData<Location>>
 
 
 }

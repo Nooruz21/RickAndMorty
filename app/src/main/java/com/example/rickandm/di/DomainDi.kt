@@ -16,4 +16,4 @@ val domainModule = module {
         LocationUseCase(rickAndMortyRepository = get())
     }
 
-   }
+}
