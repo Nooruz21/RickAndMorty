@@ -19,7 +19,6 @@ class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationView
                 tvDimension.text = dimension
                 tvType.text = type
             }
-
         }
     }
 
@@ -35,8 +34,6 @@ class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationView
                 false
             )
         )
-
-
     }
 
     private object LocationModelItemCallback : DiffUtil.ItemCallback<Location>() {

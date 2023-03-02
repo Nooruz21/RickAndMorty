@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.viewbinding.ViewBinding
 import com.example.rickandm.R
 
-abstract class BaseAlertFragment<VB : ViewBinding>(
+abstract class BaseDialogFragment<VB : ViewBinding>(
     @LayoutRes private val layoutId: Int
 ) : AppCompatDialogFragment() {
 
@@ -23,10 +23,12 @@ abstract class BaseAlertFragment<VB : ViewBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dialog?.setCancelable(false)
-        dialog?.setCanceledOnTouchOutside(false)
-        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+        dialog?.apply {
+            setCancelable(false)
+            setCanceledOnTouchOutside(false)
+            requestWindowFeature(Window.FEATURE_ACTION_BAR)
+            window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
+        }
         return inflater.inflate(R.layout.fragment_sort, container, false)
 
     }
@@ -34,11 +36,11 @@ abstract class BaseAlertFragment<VB : ViewBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        sortCheckId()
+        checkId()
         checkSort()
     }
 
     abstract fun checkSort()
-    abstract fun sortCheckId()
+    abstract fun checkId()
     abstract fun initView()
 }

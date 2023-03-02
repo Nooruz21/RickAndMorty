@@ -4,11 +4,11 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.rickandm.R
 import com.example.rickandm.databinding.FragmentSortBinding
 import com.example.rickandm.domain.model.sortmodel.CharacterSort
-import com.example.rickandm.presentation.base.BaseAlertFragment
+import com.example.rickandm.presentation.base.BaseDialogFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
-class SortFragment : BaseAlertFragment<FragmentSortBinding>(R.layout.fragment_sort) {
+class SortFragment : BaseDialogFragment<FragmentSortBinding>(R.layout.fragment_sort) {
     private var currentFilter = CharacterSort()
     private val viewModel: AllViewModel by sharedViewModel()
     override val binding by viewBinding<FragmentSortBinding>()
@@ -23,7 +23,7 @@ class SortFragment : BaseAlertFragment<FragmentSortBinding>(R.layout.fragment_so
         binding.rgGender.check(checkedGender ?: return)
     }
 
-    override fun sortCheckId() {
+    override fun checkId() {
         requireDialog().apply {
             setCancelable(true)
             setCanceledOnTouchOutside(true)

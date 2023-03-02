@@ -17,7 +17,6 @@ class EpisodeAdapter :
                 tvName.text = name
                 tvEpisode.text = episode.episode
                 tvAirData.text = air_date
-
             }
         }
 

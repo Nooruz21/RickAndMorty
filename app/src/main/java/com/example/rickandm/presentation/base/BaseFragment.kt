@@ -18,7 +18,6 @@ import kotlinx.coroutines.launch
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-
     lateinit var binding: VB
 
     abstract fun inflate(layoutInflater: LayoutInflater): VB
@@ -51,23 +50,13 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 this@collectState.collect { state ->
                     when (state) {
-                        is UiState.Loading -> {
-                            onLoading()
-                        }
-                        is UiState.Error -> {
-                            Error(state.message)
-                        }
-                        is UiState.Success -> {
-                            onSuccess(state.data)
-                        }
-                        is UiState.Empty -> {
-
-                        }
+                        is UiState.Loading -> onLoading()
+                        is UiState.Error -> Error(state.message)
+                        is UiState.Success -> onSuccess(state.data)
+                        is UiState.Empty -> Unit
                     }
-
                 }
             }
-
         }
     }
 

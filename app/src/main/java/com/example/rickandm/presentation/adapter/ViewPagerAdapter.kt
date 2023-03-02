@@ -9,7 +9,6 @@ import com.example.rickandm.presentation.fragment.LocationFragment
 
 
 class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-    private val COUNT = 3
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
@@ -20,15 +19,13 @@ class ViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
         }
     }
 
-    override fun getCount(): Int {
-        return COUNT
-    }
+    override fun getCount(): Int =3
 
     override fun getPageTitle(position: Int): CharSequence {
         when (position) {
-            0 -> return "Персонажи"
-            1 -> return "Эпизод"
-            2 -> return "Локации"
+            0 -> return "Character"
+            1 -> return "Episode"
+            2 -> return "Location"
         }
         return ""
     }
