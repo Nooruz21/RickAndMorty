@@ -7,13 +7,11 @@
     tools:context=".presentation.fragment.FilterFragment">
 
     <RadioGroup
-
         android:id="@+id/rg_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
         <RadioButton
             android:id="@+id/status_alive"
             android:layout_width="wrap_content"
@@ -89,20 +87,15 @@
             android:text="unknown" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/btn_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="back"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rg_status" />
+
 
     <Button
-        android:id="@+id/btn_filtr"
+        android:id="@+id/btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="filt"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
 
     <Button
@@ -111,6 +104,6 @@
         android:layout_height="wrap_content"
         android:text="clear"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_back"
+        app:layout_constraintStart_toEndOf="@id/btn_filter"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,7 +26,7 @@ abstract class BaseAlertFragment<VB : ViewBinding>(
         dialog?.setCancelable(false)
         dialog?.setCanceledOnTouchOutside(false)
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
         return inflater.inflate(R.layout.fragment_filtr, container, false)
 
     }

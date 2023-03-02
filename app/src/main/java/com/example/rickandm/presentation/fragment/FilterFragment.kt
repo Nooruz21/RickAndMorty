@@ -52,7 +52,7 @@ class FilterFragment : BaseAlertFragment<FragmentFiltrBinding>(R.layout.fragment
     }
 
     override fun initView() {
-        binding.btnFiltr.setOnClickListener {
+        binding.btnFilter.setOnClickListener {
             currentFilter.apply {
                 viewModel.filter(status, species, gender)
             }

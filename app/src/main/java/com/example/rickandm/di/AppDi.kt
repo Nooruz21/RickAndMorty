@@ -9,5 +9,4 @@ val appModule = module {
     viewModel {
         AllViewModel(get(), get(), get())
     }
-
 }
