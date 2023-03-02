@@ -18,19 +18,22 @@
             android:id="@+id/status_alive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alive" />
+            android:text="@string/alive"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/status_dead"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/dead" />
+            android:text="@string/dead"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/status_unknown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/unknown" />
+            android:text="@string/unknown"
+            android:textColor="@color/white" />
     </RadioGroup>
 
     <RadioGroup
@@ -45,19 +48,22 @@
             android:id="@+id/species_human"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/human" />
+            android:text="@string/human"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/species_alien"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alien" />
+            android:text="@string/alien"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/species_humanoid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/humanoid" />
+            android:text="@string/humanoid"
+            android:textColor="@color/white" />
 
     </RadioGroup>
 
@@ -74,19 +80,22 @@
             android:id="@+id/gender_male"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/male" />
+            android:text="@string/male"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/gender_female"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/female" />
+            android:text="@string/female"
+            android:textColor="@color/white" />
 
         <RadioButton
             android:id="@+id/gender_unknown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/unknown" />
+            android:text="@string/unknown"
+            android:textColor="@color/white" />
     </RadioGroup>
 
 
@@ -94,8 +103,10 @@
         android:id="@+id/btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="@color/white"
         android:text="@string/filter"
+        android:textColor="@color/blue"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
@@ -104,8 +115,10 @@
         android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="@color/white"
         android:text="@string/clear"
+        android:textColor="@color/blue"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_filter"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />

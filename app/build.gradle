@@ -95,4 +95,7 @@ dependencies {
 //viewBindingDelegate
     implementation 'com.github.kirich1409:viewbindingpropertydelegate-full:1.5.8'
 
+    //circel
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 }
