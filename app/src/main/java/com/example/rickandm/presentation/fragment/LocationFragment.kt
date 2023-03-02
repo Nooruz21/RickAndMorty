@@ -9,13 +9,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentLocationBinding
 import com.example.rickandm.presentation.adapter.LocationAdapter
 import com.example.rickandm.presentation.base.BaseFragment
-import com.example.rickandm.presentation.viewmodel.AllViewModel
+import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class LocationFragment : BaseFragment<FragmentLocationBinding>() {
-    private val viewModel: AllViewModel by sharedViewModel()
+    private val viewModel: RickAndMortyViewModel by sharedViewModel()
     private lateinit var adapter: LocationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +37,7 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
         }
 
         lifecycleScope.launch {
-            viewModel.getLocationPaging().collectPaging {
+            viewModel.observeLocationPaging().collectPaging {
                 adapter.submitData(it)
             }
         }
@@ -45,8 +45,8 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
 
     override fun initView() {
         safeFlowGather {
-            viewModel.getAllLocationSearch.collectLatest {
-                viewModel.getLocationPaging().collectPaging {
+            viewModel.locationSearch.collectLatest {
+                viewModel.observeLocationPaging().collectPaging {
                     adapter.submitData(it)
                 }
             }

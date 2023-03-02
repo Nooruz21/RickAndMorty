@@ -9,14 +9,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentCharactersBinding
 import com.example.rickandm.presentation.adapter.CharactersAdapter
 import com.example.rickandm.presentation.base.BaseFragment
-import com.example.rickandm.presentation.viewmodel.AllViewModel
+import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.merge
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
 
-    private val viewModel: AllViewModel by sharedViewModel()
+    private val viewModel: RickAndMortyViewModel by sharedViewModel()
 
     private lateinit var adapter: CharactersAdapter
 
@@ -37,7 +37,7 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
             binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
         }
 
-        viewModel.getCharacterPaging().collectPaging {
+        viewModel.characterPaging().collectPaging {
             adapter.submitData(it)
         }
     }
@@ -50,12 +50,12 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
 
         safeFlowGather {
             merge(
-                viewModel.getAllCharactersSearch,
+                viewModel.charactersSearch,
                 viewModel.statusFilter,
-                viewModel.genderFilter,
-                viewModel.speciesFilter
+                viewModel.genderSort,
+                viewModel.speciesSort
             ).collectLatest {
-                viewModel.getCharacterPaging().collectPaging {
+                viewModel.characterPaging().collectPaging {
                     binding.charactersRecycler.adapter = adapter
                     adapter.submitData(it)
                 }

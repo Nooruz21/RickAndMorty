@@ -5,11 +5,11 @@ import android.widget.SearchView
 import com.example.rickandm.databinding.FragmentTablayoutBinding
 import com.example.rickandm.presentation.adapter.ViewPagerAdapter
 import com.example.rickandm.presentation.base.BaseFragment
-import com.example.rickandm.presentation.viewmodel.AllViewModel
+import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class TabLayoutFragment : BaseFragment<FragmentTablayoutBinding>() {
-    private val viewModel: AllViewModel by sharedViewModel()
+    private val viewModel: RickAndMortyViewModel by sharedViewModel()
     override fun inflate(layoutInflater: LayoutInflater): FragmentTablayoutBinding {
         return FragmentTablayoutBinding.inflate(layoutInflater)
     }

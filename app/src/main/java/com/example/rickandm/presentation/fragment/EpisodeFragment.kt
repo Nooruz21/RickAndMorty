@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rickandm.databinding.FragmentEpisodeBinding
 import com.example.rickandm.presentation.adapter.EpisodeAdapter
 import com.example.rickandm.presentation.base.BaseFragment
-import com.example.rickandm.presentation.viewmodel.AllViewModel
+import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
-    private val viewModel: AllViewModel by sharedViewModel()
+    private val viewModel: RickAndMortyViewModel by sharedViewModel()
     private lateinit var adapter: EpisodeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +34,7 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
         }
 
         safeFlowGather {
-            viewModel.getEpisodePaging().collectPaging {
+            viewModel.observeEpisodePaging().collectPaging {
                 adapter.submitData(it)
             }
         }
@@ -42,8 +42,8 @@ class EpisodeFragment : BaseFragment<FragmentEpisodeBinding>() {
 
     override fun initListener() {
         safeFlowGather {
-            viewModel.getAllEpisodeSearch.collectLatest {
-                viewModel.getEpisodePaging().collectPaging {
+            viewModel.episodeSearch.collectLatest {
+                viewModel.observeEpisodePaging().collectPaging {
                     adapter.submitData(it)
                 }
             }

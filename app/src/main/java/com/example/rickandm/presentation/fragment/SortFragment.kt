@@ -5,12 +5,12 @@ import com.example.rickandm.R
 import com.example.rickandm.databinding.FragmentSortBinding
 import com.example.rickandm.domain.model.sortmodel.CharacterSort
 import com.example.rickandm.presentation.base.BaseDialogFragment
-import com.example.rickandm.presentation.viewmodel.AllViewModel
+import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SortFragment : BaseDialogFragment<FragmentSortBinding>(R.layout.fragment_sort) {
     private var currentFilter = CharacterSort()
-    private val viewModel: AllViewModel by sharedViewModel()
+    private val viewModel: RickAndMortyViewModel by sharedViewModel()
     override val binding by viewBinding<FragmentSortBinding>()
 
     override fun checkSort() {
@@ -57,7 +57,7 @@ class SortFragment : BaseDialogFragment<FragmentSortBinding>(R.layout.fragment_s
     override fun initView() {
         binding.btnFilter.setOnClickListener {
             currentFilter.apply {
-                viewModel.filter(status, species, gender)
+                viewModel.sort(status, species, gender)
             }
         }
         binding.btnClear.setOnClickListener {
