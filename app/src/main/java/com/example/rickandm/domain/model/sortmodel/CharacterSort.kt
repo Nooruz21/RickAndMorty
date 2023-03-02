@@ -1,6 +1,6 @@
-package com.example.rickandm.domain.model.filtermodel
+package com.example.rickandm.domain.model.sortmodel
 
-data class CharacterFilter(
+data class CharacterSort(
     var species: String? = null,
     var status: String? = null,
     var gender: String? = null,

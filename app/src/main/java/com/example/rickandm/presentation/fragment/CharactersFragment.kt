@@ -43,7 +43,7 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
 
     override fun initView() {
         binding.filter.setOnClickListener {
-            val filter = FilterFragment()
+            val filter = SortFragment()
             filter.show((activity as AppCompatActivity).supportFragmentManager, "filter")
         }
 

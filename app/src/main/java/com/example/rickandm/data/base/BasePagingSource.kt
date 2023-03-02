@@ -7,14 +7,14 @@ import com.example.rickandm.data.mapper.DataMapper
 import retrofit2.HttpException
 import java.io.IOException
 
-private const val BASE_STARTING_PAGE_INDEX = 1
+private const val BASE_STARTING_INDEX = 1
 
 abstract class BasePagingSource<ValueDto : DataMapper<Value>, Value : Any>(
     private val request: suspend (position: Int) -> BasePagingResponse<ValueDto>,
 ) : PagingSource<Int, Value>() {
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Value> {
-        val position = params.key ?: BASE_STARTING_PAGE_INDEX
+        val position = params.key ?: BASE_STARTING_INDEX
         return try {
             val response = request(position)
             val nextPage = when (response.info.next) {

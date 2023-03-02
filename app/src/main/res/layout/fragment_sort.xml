@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.FilterFragment">
+    tools:context=".presentation.fragment.SortFragment">
 
     <RadioGroup
         android:id="@+id/rg_status"
@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <RadioButton
             android:id="@+id/status_alive"
             android:layout_width="wrap_content"
@@ -88,20 +89,21 @@
     </RadioGroup>
 
 
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="filt"
+        android:backgroundTint="@color/teal_200"
+        android:text="filter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_gender" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/teal_200"
         android:text="clear"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_filter"

@@ -26,9 +26,9 @@
         tools:layout="@layout/fragment_episode" />
     <fragment
         android:id="@+id/filtrFragment"
-        android:name="com.example.rickandm.presentation.fragment.FilterFragment"
+        android:name="com.example.rickandm.presentation.fragment.SortFragment"
         android:label="fragment_filtr"
-        tools:layout="@layout/fragment_filtr">
+        tools:layout="@layout/fragment_sort">
         <action
             android:id="@+id/action_filtrFragment_to_charactersFragment"
             app:destination="@id/charactersFragment" />

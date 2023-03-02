@@ -27,18 +27,18 @@ abstract class BaseAlertFragment<VB : ViewBinding>(
         dialog?.setCanceledOnTouchOutside(false)
         dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        return inflater.inflate(R.layout.fragment_filtr, container, false)
+        return inflater.inflate(R.layout.fragment_sort, container, false)
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
-        filterCheckId()
-        getCheckedFilter()
+        sortCheckId()
+        checkSort()
     }
 
-    abstract fun getCheckedFilter()
-    abstract fun filterCheckId()
+    abstract fun checkSort()
+    abstract fun sortCheckId()
     abstract fun initView()
 }

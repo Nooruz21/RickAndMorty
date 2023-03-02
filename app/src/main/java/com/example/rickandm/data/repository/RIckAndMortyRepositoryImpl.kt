@@ -32,7 +32,6 @@ class RIckAndMortyRepositoryImpl(private val apiService: RickAndMortyService) :
         species: String?
     ): Flow<Resource<List<Result>>> = doRequest {
         apiService.getAllCharacter(name, status, gender, species).map { it.toDomain() }
-
     }
 
     override fun getAllEpisode(name: String?): Flow<PagingData<Episode>> {
