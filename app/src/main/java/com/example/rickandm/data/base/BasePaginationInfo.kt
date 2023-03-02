@@ -1,7 +1,7 @@
 package com.example.rickandm.data.base
 
 
-data class BasePagingResponse<T>(
+data class BasePaginationInfo<T>(
     val info: BaseInfo,
     val results: List<T>
 )

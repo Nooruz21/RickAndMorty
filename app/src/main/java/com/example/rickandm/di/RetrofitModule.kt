@@ -8,7 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-val networkModule = module {
+val retrofitModule = module {
     factory { provideOkHttpClient() }
     single { provideRetrofit(get()) }
     factory { provideApi(get()) }

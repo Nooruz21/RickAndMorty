@@ -1,7 +1,7 @@
 package com.example.rickandm.data.repository
 
 import androidx.paging.PagingData
-import com.example.rickandm.data.base.BaseRepository
+import com.example.rickandm.data.base.BaseDataRepository
 import com.example.rickandm.data.pagingsource.CharacterPagingSource
 import com.example.rickandm.data.pagingsource.EpisodePagingSource
 import com.example.rickandm.data.pagingsource.LocationPagingSource
@@ -15,8 +15,8 @@ import kotlinx.coroutines.flow.Flow
 
 class RIckAndMortyRepositoryImpl(private val apiService: RickAndMortyService) :
     RickAndMortyRepository,
-    BaseRepository() {
-    override fun getAllCharacters(
+    BaseDataRepository() {
+    override fun getCharacters(
         name: String?,
         status: String?,
         gender: String?,
@@ -25,20 +25,20 @@ class RIckAndMortyRepositoryImpl(private val apiService: RickAndMortyService) :
         return doPagingRequest(CharacterPagingSource(apiService, name, status, gender, species))
     }
 
-    override fun getAllCharacter(
+    override fun getCharacter(
         name: String?,
         status: String?,
         gender: String?,
         species: String?
     ): Flow<Resource<List<Result>>> = doRequest {
-        apiService.getAllCharacter(name, status, gender, species).map { it.toDomain() }
+        apiService.getCharacter(name, status, gender, species).map { it.toDomain() }
     }
 
-    override fun getAllEpisode(name: String?): Flow<PagingData<Episode>> {
+    override fun getEpisode(name: String?): Flow<PagingData<Episode>> {
         return doPagingRequest(EpisodePagingSource(apiService, name))
     }
 
-    override fun getAllLocation(name: String?): Flow<PagingData<Location>> {
+    override fun getLocation(name: String?): Flow<PagingData<Location>> {
         return doPagingRequest(LocationPagingSource(apiService, name))
     }
 

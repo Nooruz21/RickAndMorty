@@ -9,5 +9,5 @@ class LocationPagingSource(
     private val service: RickAndMortyService,
     name: String?
 ) : BasePagingSource<LocationDto, Location>({
-    service.getAllLocation(it, name)
+    service.getLocation(it, name)
 })

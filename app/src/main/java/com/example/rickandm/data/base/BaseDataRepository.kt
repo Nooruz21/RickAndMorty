@@ -2,14 +2,14 @@ package com.example.rickandm.data.base
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import com.example.rickandm.data.mapper.DataMapper
+import com.example.rickandm.data.mapper.ModelMapper
 import com.example.rickandm.domain.utils.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.io.IOException
 
-abstract class BaseRepository() {
+abstract class BaseDataRepository() {
     protected fun <T> doRequest(request: suspend () -> T) = flow {
         emit(Resource.Loading())
         try {
@@ -21,7 +21,7 @@ abstract class BaseRepository() {
 
     }.flowOn(Dispatchers.IO)
 
-    internal fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
+    internal fun <ValueDto : ModelMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,

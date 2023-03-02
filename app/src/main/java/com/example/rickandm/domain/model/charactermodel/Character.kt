@@ -1,13 +1,13 @@
 package com.example.rickandm.domain.model.charactermodel
 
-import com.example.rickandm.data.mapper.DataMapper
+import com.example.rickandm.data.mapper.ModelMapper
 import com.example.rickandm.data.model.characters.*
 
 data class Character(
     val info: Info,
     val results: List<Result>
-) : DataMapper<CharactersModelDto> {
-    override fun toDomain() = CharactersModelDto(
+) : ModelMapper<CharactersModel> {
+    override fun toDomain() = CharactersModel(
         info.toDomain(),
         results.map { it.toDomain() }
 
@@ -19,7 +19,7 @@ data class Info(
     val next: String,
     val pages: Int,
     val prev: Any
-) : DataMapper<InfoDto> {
+) : ModelMapper<InfoDto> {
     override fun toDomain() = InfoDto(
         count, next, pages, prev
     )
@@ -38,7 +38,7 @@ data class Result(
     val status: String,
     val type: String,
     val url: String
-) : DataMapper<ResultDto> {
+) : ModelMapper<ResultDto> {
 
     override fun toDomain() = ResultDto(
         created,
@@ -59,7 +59,7 @@ data class Result(
 data class Location(
     val name: String,
     val url: String
-) : DataMapper<LocationDto> {
+) : ModelMapper<LocationDto> {
     override fun toDomain() = LocationDto(
         name, url
     )
@@ -68,7 +68,7 @@ data class Location(
 data class Origin(
     val name: String,
     val url: String
-) : DataMapper<OriginDto> {
+) : ModelMapper<OriginDto> {
     override fun toDomain() = OriginDto(
         name, url
     )

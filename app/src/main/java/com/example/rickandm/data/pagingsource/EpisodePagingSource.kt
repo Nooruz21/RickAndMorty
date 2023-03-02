@@ -7,5 +7,5 @@ import com.example.rickandm.domain.model.episodemodel.Episode
 
 class EpisodePagingSource(private val apiService: RickAndMortyService, name: String?) :
     BasePagingSource<EpisodeDto, Episode>({
-        apiService.getAllEpisode(it, name)
+        apiService.getEpisode(it, name)
     })

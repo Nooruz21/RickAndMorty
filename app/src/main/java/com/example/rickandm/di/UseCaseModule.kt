@@ -5,15 +5,15 @@ import com.example.rickandm.domain.usecase.EpisodeUseCase
 import com.example.rickandm.domain.usecase.LocationUseCase
 import org.koin.dsl.module
 
-val domainModule = module {
+val useCaseModule = module {
     factory {
-        CharactersUseCase(rickAndMortyRepository = get())
+        CharactersUseCase(repositoryCharacter = get())
     }
     factory {
-        EpisodeUseCase(rickAndMortyRepository = get())
+        EpisodeUseCase(repositoryEpisode = get())
     }
     factory {
-        LocationUseCase(rickAndMortyRepository = get())
+        LocationUseCase(repositoryLocation = get())
     }
 
 }

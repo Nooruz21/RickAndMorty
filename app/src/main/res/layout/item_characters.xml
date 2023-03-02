@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_of_Characters"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="10dp"
     android:layout_marginTop="10dp"
-    android:padding="16dp"
-    app:cardBackgroundColor="@color/teal_200">
+    android:padding="16dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,8 +26,8 @@
             android:id="@+id/name_character"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="name"
-            android:textColor="@color/white"
+            android:text="@string/name"
+            android:textColor="@color/blue"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -49,8 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="status"
-            android:textColor="@color/white"
+            android:text="@string/status"
+            android:textColor="@color/blue"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_status"
             app:layout_constraintTop_toBottomOf="@+id/name_character" />
@@ -60,11 +60,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="Last known location:"
-            android:textColor="@color/white"
+            android:text="@string/last_known_location"
+            android:textColor="@color/blue"
             android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
-            app:layout_constraintTop_toBottomOf="@+id/status_character" />
+            app:layout_constraintTop_toBottomOf="@+id/status_character"
+            tools:ignore="SmallSp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_location"
@@ -72,8 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="25dp"
-            android:text="Last known location:"
-            android:textColor="@color/white"
+            android:text="@string/last_known_location"
+            android:textColor="@color/blue"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toBottomOf="@+id/status_character" />
@@ -84,11 +85,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="create "
-            android:textColor="@color/white"
+            android:text="@string/create"
+            android:textColor="@color/blue"
             android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
-            app:layout_constraintTop_toBottomOf="@+id/tv_location" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_location"
+            tools:ignore="SmallSp" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_create"
@@ -96,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:text="create"
-            android:textColor="@color/white"
+            android:text="@string/create"
+            android:textColor="@color/blue"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toBottomOf="@+id/tv_utils" />

@@ -1,6 +1,6 @@
 package com.example.rickandm.data.model.location
 
-import com.example.rickandm.data.mapper.DataMapper
+import com.example.rickandm.data.mapper.ModelMapper
 import com.example.rickandm.domain.model.locationmodel.Location
 
 data class LocationModel(
@@ -24,7 +24,7 @@ data class LocationDto(
     val residents: List<String>,
     val type: String,
     val url: String
-) : DataMapper<Location> {
+) : ModelMapper<Location> {
     override fun toDomain() = Location(
         created, dimension, id, name, residents, type, url
     )

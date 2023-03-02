@@ -33,7 +33,6 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
 
         adapter.addLoadStateListener { loadStates ->
             binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
-            // binding.charactersRecycler.isVisible = loadStates.refresh is LoadState.NotLoading
         }
 
         lifecycleScope.launch {

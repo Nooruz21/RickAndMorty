@@ -1,6 +1,6 @@
 package com.example.rickandm.data.model.episode
 
-import com.example.rickandm.data.mapper.DataMapper
+import com.example.rickandm.data.mapper.ModelMapper
 import com.example.rickandm.domain.model.episodemodel.Episode
 
 data class EpisodeModel(
@@ -23,7 +23,7 @@ data class EpisodeDto(
     val id: Int,
     val name: String,
     val url: String
-) : DataMapper<Episode> {
+) : ModelMapper<Episode> {
     override fun toDomain() = Episode(
         air_date, characters, created, episode, id, name, url
     )

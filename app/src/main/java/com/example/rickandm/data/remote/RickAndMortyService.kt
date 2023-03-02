@@ -1,6 +1,6 @@
 package com.example.rickandm.data.remote
 
-import com.example.rickandm.data.base.BasePagingResponse
+import com.example.rickandm.data.base.BasePaginationInfo
 import com.example.rickandm.data.model.characters.ResultDto
 import com.example.rickandm.data.model.episode.EpisodeDto
 import com.example.rickandm.data.model.location.LocationDto
@@ -15,10 +15,10 @@ interface RickAndMortyService {
         @Query("status") status: String?,
         @Query("gender") gender: String?,
         @Query("species") species: String?,
-    ): BasePagingResponse<ResultDto>
+    ): BasePaginationInfo<ResultDto>
 
     @GET("character")
-    suspend fun getAllCharacter(
+    suspend fun getCharacter(
         @Query("name") name: String?,
         @Query("status") status: String?,
         @Query("gender") gender: String?,
@@ -27,17 +27,17 @@ interface RickAndMortyService {
 
 
     @GET("episode")
-    suspend fun getAllEpisode(
+    suspend fun getEpisode(
         @Query("page") page: Int,
         @Query("name") name: String?
-    ): BasePagingResponse<EpisodeDto>
+    ): BasePaginationInfo<EpisodeDto>
 
 
     @GET("location")
-    suspend fun getAllLocation(
+    suspend fun getLocation(
         @Query("page") page: Int,
         @Query("name") name: String?
-    ): BasePagingResponse<LocationDto>
+    ): BasePaginationInfo<LocationDto>
 
 
 }

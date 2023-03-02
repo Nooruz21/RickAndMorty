@@ -1,5 +1,5 @@
 package com.example.rickandm.data.mapper
 
-interface DataMapper<T> {
+interface ModelMapper<T> {
     fun toDomain(): T
 }

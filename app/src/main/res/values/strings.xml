@@ -1,5 +1,24 @@
 <resources>
     <string name="app_name">RickAndM</string>
     <string name="character_status">%1$s - %2$s</string>
+    <string name="create">create</string>
+    <string name="last_known_location">Last known location:</string>
+    <string name="status">status</string>
+    <string name="name">name</string>
+    <string name="id">id</string>
+    <string name="air_data">air_data</string>
+    <string name="episode">episode</string>
+    <string name="type">type</string>
+    <string name="dimension">dimension</string>
+    <string name="alive">alive</string>
+    <string name="dead">dead</string>
+    <string name="unknown">unknown</string>
+    <string name="human">Human</string>
+    <string name="alien">Alien</string>
+    <string name="humanoid">humanoid</string>
+    <string name="male">male</string>
+    <string name="female">Female</string>
+    <string name="filter">filter</string>
+    <string name="clear">clear</string>
 
 </resources>
