@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/item_of_Characters"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -65,7 +64,6 @@
             android:layout_marginTop="5dp"
             android:text="Last known location:"
             android:textColor="@color/white"
-
             android:textSize="10sp"
             app:layout_constraintStart_toEndOf="@+id/image_character"
             app:layout_constraintTop_toBottomOf="@+id/status_character" />

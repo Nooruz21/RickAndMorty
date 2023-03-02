@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragment.HomeFragment">
 
 
     <com.google.android.material.appbar.AppBarLayout
-        android:outlineSpotShadowColor="@color/white"
         android:layout_width="match_parent"
-        android:fitsSystemWindows="true"
         android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:outlineSpotShadowColor="@color/white"
         tools:targetApi="p">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:fitsSystemWindows="true"
             android:layout_width="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:layout_scrollFlags="scroll|enterAlways">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="@color/teal_200"
-                app:layout_constraintBottom_toTopOf="@id/viewPager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:id="@+id/tab_search"
                 android:layout_width="match_parent"
-                android:layout_height="84dp">
+                android:layout_height="84dp"
+                android:background="@color/teal_200"
+                app:layout_constraintBottom_toTopOf="@id/viewPager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
                 <androidx.appcompat.widget.SearchView
                     android:id="@+id/search_id"
                     android:layout_width="350dp"
@@ -39,7 +40,6 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
 
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -47,30 +47,29 @@
 
     <androidx.viewpager.widget.ViewPager
 
-        app:layout_constraintTop_toBottomOf="@id/tab_search"
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_search"
         tools:layout_editor_absoluteX="-27dp">
 
 
         <com.google.android.material.tabs.TabLayout
 
-            android:layout_marginTop="12dp"
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:scrollbarSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tabIndicatorColor="@color/purple_200"
-            app:tabTextColor="@color/teal_200"
-            android:scrollbarSize="12dp"
-            app:tabIndicatorHeight="3dp">
-        </com.google.android.material.tabs.TabLayout>
+            app:tabIndicatorHeight="3dp"
+            app:tabTextColor="@color/teal_200"></com.google.android.material.tabs.TabLayout>
 
     </androidx.viewpager.widget.ViewPager>
 

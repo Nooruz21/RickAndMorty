@@ -9,7 +9,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.rickandm.presentation.fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_charactersFragment"
             app:destination="@id/charactersFragment" />
@@ -28,7 +28,7 @@
         android:id="@+id/filtrFragment"
         android:name="com.example.rickandm.presentation.fragment.FilterFragment"
         android:label="fragment_filtr"
-        tools:layout="@layout/fragment_filtr" >
+        tools:layout="@layout/fragment_filtr">
         <action
             android:id="@+id/action_filtrFragment_to_charactersFragment"
             app:destination="@id/charactersFragment" />

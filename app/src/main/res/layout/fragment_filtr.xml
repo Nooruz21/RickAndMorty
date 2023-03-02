@@ -1,90 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.fragment.FilterFragment">
 
-  <RadioGroup
-
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      android:id="@+id/rg_status"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content">
-
-      <RadioButton
-          android:id="@+id/status_alive"
-          android:text="alive"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
-
-      <RadioButton
-          android:id="@+id/status_dead"
-          android:text="dead"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"/>
-
-      <RadioButton
-      android:id="@+id/status_unknown"
-      android:text="unknown"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"/>
-  </RadioGroup>
     <RadioGroup
-        android:layout_marginStart="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintStart_toEndOf="@id/rg_status"
+
+        android:id="@+id/rg_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/status_alive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="alive" />
+
+        <RadioButton
+            android:id="@+id/status_dead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="dead" />
+
+        <RadioButton
+            android:id="@+id/status_unknown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="unknown" />
+    </RadioGroup>
+
+    <RadioGroup
         android:id="@+id/rg_species"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/rg_status"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/species_human"
-            android:text="Human"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Human" />
 
         <RadioButton
             android:id="@+id/species_alien"
-            android:text="Alien"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Alien" />
 
         <RadioButton
             android:id="@+id/species_humanoid"
-            android:text="humanoid"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="humanoid" />
 
     </RadioGroup>
+
     <RadioGroup
 
-        android:layout_marginStart="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/rg_species"
         android:id="@+id/rg_gender"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toEndOf="@id/rg_species"
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/gender_male"
-            android:text="male"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="male" />
 
         <RadioButton
             android:id="@+id/gender_female"
-            android:text="Female"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Female" />
 
         <RadioButton
             android:id="@+id/gender_unknown"
-            android:text="unknown"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="unknown" />
     </RadioGroup>
 
     <Button
@@ -94,13 +96,14 @@ app:layout_constraintStart_toEndOf="@id/rg_status"
         android:text="back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rg_status" />
+
     <Button
         android:id="@+id/btn_filtr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="filt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rg_gender"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintTop_toBottomOf="@id/rg_gender" />
 
     <Button
         android:id="@+id/btn_clear"
