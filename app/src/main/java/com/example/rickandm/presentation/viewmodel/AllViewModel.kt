@@ -47,7 +47,7 @@ class AllViewModel(
         _statusFilter.value, _genderFilter.value, _speciesFilter.value
     ).collectPagingRequest { it }
 
-    fun getCharacterSearchQuery(newQuery: String?) {
+    fun characterSearchQuery(newQuery: String?) {
         _getAllCharactersSearch.value = newQuery
     }
 
@@ -59,11 +59,11 @@ class AllViewModel(
     }
 
 
-    fun getEpisodeSearchQuery(newQuery: String?) {
+    fun episodeSearchQuery(newQuery: String?) {
         _getAllEpisodeSearch.value = newQuery
     }
 
-    fun getLocationSearchQuery(newQuery: String?) {
+    fun locationSearchQuery(newQuery: String?) {
         _getAllLocationSearch.value = newQuery
     }
 

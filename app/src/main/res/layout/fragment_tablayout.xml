@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.HomeFragment">
+    tools:context=".presentation.fragment.TabLayoutFragment">
 
 
     <com.google.android.material.appbar.AppBarLayout
@@ -46,7 +46,6 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
-
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +56,6 @@
 
 
         <com.google.android.material.tabs.TabLayout
-
             android:id="@+id/tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -69,7 +67,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tabIndicatorColor="@color/purple_200"
             app:tabIndicatorHeight="3dp"
-            app:tabTextColor="@color/teal_200"></com.google.android.material.tabs.TabLayout>
+            app:tabTextColor="@color/teal_200"/>
 
     </androidx.viewpager.widget.ViewPager>
 
