@@ -11,9 +11,11 @@ import com.example.rickandm.presentation.adapter.CharactersAdapter
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.viewmodel.AllViewModel
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.merge
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
+
     private val viewModel: AllViewModel by sharedViewModel()
 
     private lateinit var adapter: CharactersAdapter
@@ -28,7 +30,6 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
     }
 
     override fun initListener() {
-
         binding.charactersRecycler.layoutManager = LinearLayoutManager(context)
         binding.charactersRecycler.adapter = adapter
 
@@ -48,33 +49,12 @@ class CharactersFragment : BaseFragment<FragmentCharactersBinding>() {
         }
 
         safeFlowGather {
-            viewModel.getAllCharactersSearch.collectLatest {
-                viewModel.getCharacterPaging().collectPaging {
-                    adapter.submitData(it)
-                }
-            }
-        }
-        safeFlowGather {
-            viewModel.statusFilter.collectLatest {
-                viewModel.getCharacterPaging().collectPaging {
-                    binding.charactersRecycler.adapter = adapter
-                    adapter.submitData(it)
-                }
-            }
-        }
-
-        safeFlowGather {
-            viewModel.genderFilter.collectLatest {
-                viewModel.getCharacterPaging().collectPaging {
-
-                    binding.charactersRecycler.adapter = adapter
-                    adapter.submitData(it)
-                }
-            }
-        }
-
-        safeFlowGather {
-            viewModel.speciesFilter.collectLatest {
+            merge(
+                viewModel.getAllCharactersSearch,
+                viewModel.statusFilter,
+                viewModel.genderFilter,
+                viewModel.speciesFilter
+            ).collectLatest {
                 viewModel.getCharacterPaging().collectPaging {
                     binding.charactersRecycler.adapter = adapter
                     adapter.submitData(it)
