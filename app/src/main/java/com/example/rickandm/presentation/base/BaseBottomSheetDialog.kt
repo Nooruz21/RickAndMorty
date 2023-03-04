@@ -1,21 +1,20 @@
 package com.example.rickandm.presentation.base
 
+import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatDialogFragment
 import androidx.viewbinding.ViewBinding
 import com.example.rickandm.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-abstract class BaseDialogFragment<VB : ViewBinding>(
+abstract class BaseBottomSheetDialog<VB : ViewBinding>(
     @LayoutRes private val layoutId: Int
-) : AppCompatDialogFragment() {
-
+) : BottomSheetDialogFragment() {
     protected abstract val binding: VB
 
     override fun onCreateView(
@@ -23,14 +22,7 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dialog?.apply {
-            setCancelable(false)
-            setCanceledOnTouchOutside(false)
-            requestWindowFeature(Window.FEATURE_ACTION_BAR)
-            window?.setBackgroundDrawable(ColorDrawable(Color.WHITE))
-        }
         return inflater.inflate(R.layout.fragment_sort, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,6 +31,7 @@ abstract class BaseDialogFragment<VB : ViewBinding>(
         checkId()
         checkSort()
     }
+
 
     abstract fun checkSort()
     abstract fun checkId()
