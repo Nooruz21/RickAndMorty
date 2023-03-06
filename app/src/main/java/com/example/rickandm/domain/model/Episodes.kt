@@ -1,4 +1,4 @@
-package com.example.rickandm.domain.model.episodemodel
+package com.example.rickandm.domain.model
 
 data class Episodes(
     val info: InfoEpisode,

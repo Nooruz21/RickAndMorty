@@ -1,5 +1,6 @@
 package com.example.rickandm.presentation.viewmodel
 
+import com.example.rickandm.domain.model.Result
 import com.example.rickandm.domain.usecase.CharactersUseCase
 import com.example.rickandm.domain.usecase.EpisodeUseCase
 import com.example.rickandm.domain.usecase.LocationUseCase
@@ -15,6 +16,7 @@ class RickAndMortyViewModel(
 
     private val _charactersSearch = MutableStateFlow<String?>(null)
     val charactersSearch = _charactersSearch.asStateFlow()
+
 
     private val _locationSearch = MutableStateFlow<String?>(null)
     val locationSearch = _charactersSearch.asStateFlow()
@@ -47,6 +49,7 @@ class RickAndMortyViewModel(
         _genderSort.value,
         _speciesSort.value
     ).collectPagingRequest { it }
+
 
 
     fun sort(status: String?, species: String?, gender: String?) {

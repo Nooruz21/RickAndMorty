@@ -3,9 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/gradient"
+    android:orientation="vertical"
     tools:context=".presentation.fragment.LocationFragment">
+
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_id"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bg_search_view" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/characters_recycler"

@@ -4,16 +4,15 @@
     android:id="@+id/item_episode"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="10dp"
-    android:layout_marginTop="10dp"
+    android:layout_margin="10dp"
     android:padding="16dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="10dp"
-    app:cardElevation="8dp">
+    app:cardCornerRadius="10dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <com.google.android.material.textview.MaterialTextView
@@ -21,12 +20,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/id"
+            android:layout_gravity="center"
             android:textColor="@color/blue"
             android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_name"
@@ -34,11 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:text="@string/name"
+            android:layout_gravity="left"
             android:textColor="@color/blue"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/tv_number"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textStyle="bold" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_air_data"
@@ -49,9 +45,7 @@
             android:text="@string/air_data"
             android:textColor="@color/blue"
             android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/tv_number"
-            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+            android:textStyle="bold" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_episode"
@@ -62,10 +56,8 @@
             android:text="@string/episode"
             android:textColor="@color/blue"
             android:textSize="14sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/tv_number"
-            app:layout_constraintTop_toBottomOf="@id/tv_air_data" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 
 </androidx.cardview.widget.CardView>

@@ -1,7 +1,7 @@
-package com.example.rickandm.data.model.episode
+package com.example.rickandm.data.model
 
 import com.example.rickandm.data.mapper.ModelMapper
-import com.example.rickandm.domain.model.episodemodel.Episode
+import com.example.rickandm.domain.model.Episode
 
 data class EpisodeModel(
     val info: Info,

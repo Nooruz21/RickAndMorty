@@ -1,4 +1,4 @@
-package com.example.rickandm.domain.model.locationmodel
+package com.example.rickandm.domain.model
 
 data class Locations(
     val info: InfoLocation,

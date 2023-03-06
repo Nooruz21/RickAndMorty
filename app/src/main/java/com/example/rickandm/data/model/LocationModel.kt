@@ -1,14 +1,15 @@
-package com.example.rickandm.data.model.location
+package com.example.rickandm.data.model
 
 import com.example.rickandm.data.mapper.ModelMapper
-import com.example.rickandm.domain.model.locationmodel.Location
+import com.example.rickandm.domain.model.InfoLocation
+import com.example.rickandm.domain.model.Location
 
 data class LocationModel(
-    val info: Info,
+    val info: InfoL,
     val results: List<LocationDto>
 )
 
-data class Info(
+data class InfoL(
     val count: Int,
     val next: String,
     val pages: Int,

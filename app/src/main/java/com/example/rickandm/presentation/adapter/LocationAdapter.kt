@@ -6,7 +6,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.rickandm.databinding.ItemLocationBinding
-import com.example.rickandm.domain.model.locationmodel.Location
+import com.example.rickandm.domain.model.Location
 
 class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationViewHolder>(
     LocationModelItemCallback

@@ -7,6 +7,16 @@
     android:background="@drawable/gradient"
     tools:context=".presentation.fragment.CharactersFragment">
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_id"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/bg_search_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <ImageView
         android:id="@+id/filter"
         android:layout_width="40dp"
@@ -23,7 +33,6 @@
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         tools:listitem="@layout/item_characters" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

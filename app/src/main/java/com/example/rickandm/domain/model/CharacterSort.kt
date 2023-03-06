@@ -1,4 +1,4 @@
-package com.example.rickandm.domain.model.sortmodel
+package com.example.rickandm.domain.model
 
 data class CharacterSort(
     var species: String? = null,

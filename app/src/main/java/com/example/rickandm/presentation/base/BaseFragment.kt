@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
-import com.example.rickandm.domain.utils.UiState
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -35,30 +34,13 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView()
         initListener()
+        search()
     }
 
     open fun initView() {}
     open fun initListener() {}
+    open fun search(){}
 
-
-    protected fun <T> StateFlow<UiState<T>>.collectState(
-        onLoading: () -> Unit,
-        Error: (message: String) -> Unit,
-        onSuccess: (data: T) -> Unit
-    ) {
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                this@collectState.collect { state ->
-                    when (state) {
-                        is UiState.Loading -> onLoading()
-                        is UiState.Error -> Error(state.message)
-                        is UiState.Success -> onSuccess(state.data)
-                        is UiState.Empty -> Unit
-                    }
-                }
-            }
-        }
-    }
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(
         lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
@@ -77,4 +59,5 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
             }
         }
     }
+
 }

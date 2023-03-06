@@ -2,6 +2,7 @@ package com.example.rickandm.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
@@ -40,6 +41,23 @@ class LocationFragment : BaseFragment<FragmentLocationBinding>() {
                 adapter.submitData(it)
             }
         }
+    }
+
+    override fun search() {
+        super.search()
+        binding.searchId.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(p0: String): Boolean = false
+
+            override fun onQueryTextChange(p0: String?): Boolean {
+                p0?.let { query ->
+                    viewModel.characterSearchQuery(query)
+                    viewModel.episodeSearchQuery(query)
+                    viewModel.locationSearchQuery(query)
+                }
+                return false
+            }
+        })
     }
 
     override fun initView() {

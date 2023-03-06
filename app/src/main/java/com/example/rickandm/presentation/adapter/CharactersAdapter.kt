@@ -8,12 +8,11 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.rickandm.R
 import com.example.rickandm.databinding.ItemCharactersBinding
-import com.example.rickandm.domain.model.charactermodel.Result
+import com.example.rickandm.domain.model.Result
 
 class CharactersAdapter :
     PagingDataAdapter<Result, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
 
-    var onClickItem: ((Result) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         return CharactersViewHolder(
@@ -48,10 +47,6 @@ class CharactersAdapter :
                     )
                 tvLocation.text = location.name
                 tvCreate.text = created
-
-                itemView.setOnClickListener {
-                    onClickItem?.invoke(result)
-                }
             }
         }
     }

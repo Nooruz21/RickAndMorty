@@ -9,4 +9,5 @@ class CharactersUseCase(private val repositoryCharacter: RickAndMortyRepository)
         gender: String?,
         species: String?
     ) = repositoryCharacter.getCharacters(name, status, gender, species)
+
 }

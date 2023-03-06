@@ -18,18 +18,6 @@ class TabLayoutFragment : BaseFragment<FragmentTablayoutBinding>() {
         val viewPager = binding.viewPager
         viewPager.adapter = ViewPagerAdapter(requireActivity().supportFragmentManager)
 
-        binding.searchId.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(p0: String): Boolean = false
 
-            override fun onQueryTextChange(p0: String?): Boolean {
-                p0?.let { query ->
-                    viewModel.characterSearchQuery(query)
-                    viewModel.episodeSearchQuery(query)
-                    viewModel.locationSearchQuery(query)
-                }
-                return false
-            }
-        })
     }
 }
