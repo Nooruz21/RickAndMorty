@@ -12,7 +12,6 @@ private const val BASE_STARTING_INDEX = 1
 abstract class BasePagingSource<ValueDto : ModelMapper<Value>, Value : Any>(
     private val request: suspend (position: Int) -> BasePaginationInfo<ValueDto>,
 ) : PagingSource<Int, Value>() {
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Value> {
         val position = params.key ?: BASE_STARTING_INDEX
         return try {

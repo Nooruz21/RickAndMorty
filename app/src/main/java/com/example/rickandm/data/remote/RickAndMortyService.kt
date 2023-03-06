@@ -18,7 +18,6 @@ interface RickAndMortyService {
     ): BasePaginationInfo<ResultDto>
 
 
-
     @GET("episode")
     suspend fun getEpisode(
         @Query("page") page: Int,

@@ -50,8 +50,6 @@ class RickAndMortyViewModel(
         _speciesSort.value
     ).collectPagingRequest { it }
 
-
-
     fun sort(status: String?, species: String?, gender: String?) {
         _statusSort.value = status
         _speciesSort.value = species

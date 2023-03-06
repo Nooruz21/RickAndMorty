@@ -13,7 +13,6 @@ import com.example.rickandm.domain.model.Result
 class CharactersAdapter :
     PagingDataAdapter<Result, CharactersAdapter.CharactersViewHolder>(CharacterModelItemCallback) {
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharactersViewHolder {
         return CharactersViewHolder(
             ItemCharactersBinding.inflate(
