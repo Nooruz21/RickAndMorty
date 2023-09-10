@@ -1,6 +1,6 @@
 package com.example.rickandm.di
 
-import com.example.rickandm.data.remote.RickAndMortyService
+import com.example.data.remote.RickAndMortyService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module

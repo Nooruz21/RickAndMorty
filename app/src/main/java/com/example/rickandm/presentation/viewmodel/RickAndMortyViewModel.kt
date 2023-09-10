@@ -1,6 +1,5 @@
 package com.example.rickandm.presentation.viewmodel
 
-import com.example.rickandm.domain.model.Result
 import com.example.rickandm.domain.usecase.CharactersUseCase
 import com.example.rickandm.domain.usecase.EpisodeUseCase
 import com.example.rickandm.domain.usecase.LocationUseCase
