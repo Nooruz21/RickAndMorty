@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     android:orientation="vertical"
-    tools:context=".presentation.fragment.EpisodeFragment">
+    tools:context=".presentation.ui.fragment.EpisodeFragment">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_id"

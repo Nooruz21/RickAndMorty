@@ -1,10 +1,9 @@
 package com.example.domain.repository
 
-import androidx.paging.PagingData
 import com.example.domain.model.Character
 import com.example.domain.model.Episode
 import com.example.domain.model.Location
-import kotlinx.coroutines.flow.Flow
+import com.example.domain.utils.RemotePagingWrapper
 
 interface RickAndMortyRepository {
     fun getCharacters(
@@ -12,10 +11,10 @@ interface RickAndMortyRepository {
         status: String?,
         gender: String?,
         species: String?
-    ): Flow<PagingData<Character>>
+    ): RemotePagingWrapper<Character>
 
-    fun getEpisode(name: String?): Flow<PagingData<Episode>>
-    fun getLocation(name: String?): Flow<PagingData<Location>>
+    fun getEpisode(name: String?): RemotePagingWrapper<Episode>
+    fun getLocation(name: String?): RemotePagingWrapper<Location>
 
 
 }

@@ -1,8 +1,8 @@
 package com.example.rickandm.di
 
-import com.example.rickandm.domain.usecase.CharactersUseCase
-import com.example.rickandm.domain.usecase.EpisodeUseCase
-import com.example.rickandm.domain.usecase.LocationUseCase
+import com.example.domain.usecase.CharactersUseCase
+import com.example.domain.usecase.EpisodeUseCase
+import com.example.domain.usecase.LocationUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {

@@ -1,22 +1,22 @@
-package com.example.rickandm.presentation.adapter
+package com.example.rickandm.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.domain.model.Episode
 import com.example.rickandm.databinding.ItemEpisodeBinding
+import com.example.rickandm.presentation.base.BaseDiffUtilItemCallback
+import com.example.rickandm.presentation.ui.models.EpisodeUI
 
 class EpisodeAdapter :
-    PagingDataAdapter<Episode, EpisodeAdapter.EpisodeViewHolder>(LocationModelItemCallback) {
+    PagingDataAdapter<EpisodeUI, EpisodeAdapter.EpisodeViewHolder>(BaseDiffUtilItemCallback()) {
     class EpisodeViewHolder(private val binding: ItemEpisodeBinding) : ViewHolder(binding.root) {
-        fun bind(episode: Episode) = with(binding) {
+        fun bind(episode: EpisodeUI) = with(binding) {
             episode.apply {
                 tvNumber.text = id.toString()
                 tvName.text = name
                 tvEpisode.text = episode.episode
-                tvAirData.text = air_date
+                tvAirData.text = airDate
             }
         }
 
@@ -36,14 +36,4 @@ class EpisodeAdapter :
         )
     }
 
-    private object LocationModelItemCallback : DiffUtil.ItemCallback<Episode>() {
-        override fun areItemsTheSame(oldItem: Episode, newItem: Episode): Boolean {
-            return oldItem == newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Episode, newItem: Episode): Boolean {
-            return oldItem.id == newItem.id && oldItem.name == newItem.name
-        }
-
-    }
 }

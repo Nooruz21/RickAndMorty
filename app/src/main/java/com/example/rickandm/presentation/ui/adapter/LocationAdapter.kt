@@ -1,18 +1,18 @@
-package com.example.rickandm.presentation.adapter
+package com.example.rickandm.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import com.example.domain.model.Location
 import com.example.rickandm.databinding.ItemLocationBinding
+import com.example.rickandm.presentation.base.BaseDiffUtilItemCallback
+import com.example.rickandm.presentation.ui.models.LocationUI
 
-class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationViewHolder>(
-    LocationModelItemCallback
+class LocationAdapter : PagingDataAdapter<LocationUI, LocationAdapter.LocationViewHolder>(
+    BaseDiffUtilItemCallback()
 ) {
     class LocationViewHolder(private val binding: ItemLocationBinding) : ViewHolder(binding.root) {
-        fun bind(location: Location) = with(binding) {
+        fun bind(location: LocationUI) = with(binding) {
             location.apply {
                 tvNumber.text = id.toString()
                 tvName.text = name
@@ -36,14 +36,4 @@ class LocationAdapter : PagingDataAdapter<Location, LocationAdapter.LocationView
         )
     }
 
-    private object LocationModelItemCallback : DiffUtil.ItemCallback<Location>() {
-        override fun areItemsTheSame(oldItem: Location, newItem: Location): Boolean {
-            return oldItem == newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Location, newItem: Location): Boolean {
-            return oldItem.id == newItem.id && oldItem.name == newItem.name
-        }
-
-    }
 }

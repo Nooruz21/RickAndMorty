@@ -1,9 +1,10 @@
-package com.example.rickandm.presentation.viewmodel
+package com.example.rickandm.presentation.ui.viewmodel
 
-import com.example.rickandm.domain.usecase.CharactersUseCase
-import com.example.rickandm.domain.usecase.EpisodeUseCase
-import com.example.rickandm.domain.usecase.LocationUseCase
+import com.example.domain.usecase.CharactersUseCase
+import com.example.domain.usecase.EpisodeUseCase
+import com.example.domain.usecase.LocationUseCase
 import com.example.rickandm.presentation.base.BaseViewModel
+import com.example.rickandm.presentation.ui.models.toUI
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
@@ -33,9 +34,9 @@ class RickAndMortyViewModel(
     val genderSort = _genderSort.asStateFlow()
 
 
-    fun observeLocationPaging() = locationUseCase(_locationSearch.value).collectPagingRequest { it }
+    fun observeLocationPaging() = locationUseCase(_locationSearch.value).collectPagingRequest { it.toUI() }
 
-    fun observeEpisodePaging() = episodeUseCase(_episodeSearch.value).collectPagingRequest { it }
+    fun observeEpisodePaging() = episodeUseCase(_episodeSearch.value).collectPagingRequest { it.toUI() }
 
 
     fun characterPaging(
@@ -47,7 +48,7 @@ class RickAndMortyViewModel(
         _statusSort.value,
         _genderSort.value,
         _speciesSort.value
-    ).collectPagingRequest { it }
+    ).collectPagingRequest { it.toUI() }
 
     fun sort(status: String?, species: String?, gender: String?) {
         _statusSort.value = status

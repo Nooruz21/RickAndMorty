@@ -1,4 +1,4 @@
-package com.example.rickandm.domain.usecase
+package com.example.domain.usecase
 
 import com.example.domain.repository.RickAndMortyRepository
 

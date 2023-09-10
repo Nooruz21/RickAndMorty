@@ -4,8 +4,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import com.example.data.mapper.DataMapper
 
-open class BaseDataRepository() {
-    internal fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
+abstract class BaseDataRepository() {
+    protected fun <ValueDto : DataMapper<Value>, Value : Any> doPagingRequest(
         pagingSource: BasePagingSource<ValueDto, Value>,
         pageSize: Int = 10,
         prefetchDistance: Int = pageSize,

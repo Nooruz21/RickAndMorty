@@ -1,11 +1,11 @@
-package com.example.rickandm.presentation.fragment
+package com.example.rickandm.presentation.ui.fragment
 
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.domain.model.CharacterSort
 import com.example.rickandm.R
 import com.example.rickandm.databinding.FragmentSortBinding
 import com.example.rickandm.presentation.base.BaseBottomSheetDialog
-import com.example.rickandm.presentation.viewmodel.RickAndMortyViewModel
+import com.example.rickandm.presentation.ui.viewmodel.RickAndMortyViewModel
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SortFragment : BaseBottomSheetDialog<FragmentSortBinding>(R.layout.fragment_sort) {
