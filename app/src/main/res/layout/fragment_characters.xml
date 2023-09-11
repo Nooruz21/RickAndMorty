@@ -5,34 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".presentation.ui.fragment.CharactersFragment">
+    tools:context=".presentation.ui.fragment.character.CharactersFragment">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/search_id"
-        android:layout_width="350dp"
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        android:queryHint="name"
+        app:layout_constraintEnd_toStartOf="@id/btn_filter_dialog"/>
+
+    <ImageButton
+        android:id="@+id/btn_filter_dialog"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/bg_search_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/filter"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/ic_baseline_filter_list_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/transparent"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/searchView"
+        android:src="@drawable/ic_baseline_filter_list_24"
+        tools:ignore="ContentDescription" />
 
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="gone" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/characters_recycler"
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
-        tools:listitem="@layout/item_characters" />
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchView"
+        tools:listitem="@layout/item_characters"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

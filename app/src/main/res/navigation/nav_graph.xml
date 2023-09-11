@@ -16,12 +16,12 @@
     </fragment>
     <fragment
         android:id="@+id/charactersFragment"
-        android:name="com.example.rickandm.presentation.ui.fragment.CharactersFragment"
+        android:name="com.example.rickandm.presentation.ui.fragment.character.CharactersFragment"
         android:label="fragment_characters"
         tools:layout="@layout/fragment_characters" />
     <fragment
         android:id="@+id/episodeFragment"
-        android:name="com.example.rickandm.presentation.ui.fragment.EpisodeFragment"
+        android:name="com.example.rickandm.presentation.ui.fragment.episode.EpisodeFragment"
         android:label="fragment_episode"
         tools:layout="@layout/fragment_episode" />
     <fragment
@@ -38,7 +38,7 @@
     </fragment>
     <fragment
         android:id="@+id/locationFragment"
-        android:name="com.example.rickandm.presentation.ui.fragment.LocationFragment"
+        android:name="com.example.rickandm.presentation.ui.fragment.location.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
 </navigation>

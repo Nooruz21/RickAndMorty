@@ -2,6 +2,8 @@ package com.example.rickandm.presentation.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -33,21 +35,22 @@ class CharactersAdapter :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(result: CharacterUI) = with(binding) {
             result.apply {
-                imageCharacter.load(image)
-                nameCharacter.text = name
+                progressImage.isVisible = true
+                imageView.load(image){ listener { _, _ -> progressImage.isGone = true }}
+                tvName.text = name
+                tvStatus.text = status
+                tvSpecies.text = species
+                tvGender.text = gender
                 when (status) {
-                    "Alive" -> imageStatus.setImageResource(R.drawable.ic_alive_status)
-                    "Dead" -> imageStatus.setImageResource(R.drawable.ic_dead_status)
-                    "unknown" -> imageStatus.setImageResource(R.drawable.ic_unknown_status)
+                    "Alive" -> imageStatus.setImageResource(R.color.green)
+                    "Dead" -> imageStatus.setImageResource(R.color.red)
+                    "unknown" -> imageStatus.setImageResource(R.color.grey)
                 }
-                statusCharacter.text =
-                    statusCharacter.context.getString(
-                        R.string.character_status,
-                        status,
-                        species
-                    )
-                tvLocation.text = location.name
-                tvCreate.text = created
+                when (gender) {
+                    "Male" -> imageGender.setImageResource(R.drawable.ic_male_gender)
+                    "Female" -> imageGender.setImageResource(R.drawable.ic_female_gender)
+                    "unknown" -> imageGender.setImageResource(R.color.grey)
+                }
             }
         }
     }

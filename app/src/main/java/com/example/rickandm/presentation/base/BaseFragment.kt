@@ -42,24 +42,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupRequests() {}
 
     protected open fun setupSubscribers() {}
-    protected fun <T> StateFlow<UIState<T>>.collectUIState(
-        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
-        state: ((UIState<T>) -> Unit)? = null,
-        onError: ((error: NetworkError) -> Unit),
-        onSuccess: ((data: T) -> Unit)
-    ) {
-        collectFlowSafely(lifecycleState) {
-            this.collect {
-                state?.invoke(it)
-                when (it) {
-                    is UIState.Idle -> {}
-                    is UIState.Loading -> {}
-                    is UIState.Error -> onError.invoke(it.error)
-                    is UIState.Success -> onSuccess.invoke(it.data)
-                }
-            }
-        }
-    }
 
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(

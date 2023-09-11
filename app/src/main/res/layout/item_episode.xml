@@ -19,7 +19,7 @@
             android:id="@+id/tv_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/id"
+            android:text="id"
             android:layout_gravity="center"
             android:textColor="@color/blue"
             android:textSize="18sp"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:text="@string/air_data"
+            android:text="air_data"
             android:textColor="@color/blue"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="10dp"
-            android:text="@string/episode"
+            android:text="episode"
             android:textColor="@color/blue"
             android:textSize="14sp"
             android:textStyle="bold"/>

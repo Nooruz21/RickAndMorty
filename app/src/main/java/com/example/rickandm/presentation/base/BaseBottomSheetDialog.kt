@@ -24,13 +24,10 @@ abstract class BaseBottomSheetDialog<VB : ViewBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initView()
-        checkId()
-        checkSort()
+        setupListeners()
     }
 
+    abstract fun setupListeners()
 
-    abstract fun checkSort()
-    abstract fun checkId()
-    abstract fun initView()
+
 }

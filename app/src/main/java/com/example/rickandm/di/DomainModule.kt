@@ -5,15 +5,15 @@ import com.example.domain.usecase.EpisodeUseCase
 import com.example.domain.usecase.LocationUseCase
 import org.koin.dsl.module
 
-val useCaseModule = module {
+val domainModule = module {
     factory {
-        CharactersUseCase(repositoryCharacter = get())
+        CharactersUseCase(repository = get())
     }
     factory {
-        EpisodeUseCase(repositoryEpisode = get())
+        EpisodeUseCase(repository = get())
     }
     factory {
-        LocationUseCase(repositoryLocation = get())
+        LocationUseCase(repository = get())
     }
 
 }
