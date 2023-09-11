@@ -3,7 +3,7 @@ package com.example.rickandm.di
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.data.PreferencesButton
-import com.example.data.RetrofitProvide
+import com.example.data.remote.network.RetrofitProvide
 import com.example.data.repository.CharacterRepositoryImpl
 import com.example.data.repository.EpisodeRepositoryImpl
 import com.example.data.repository.LocationRepositoryImpl

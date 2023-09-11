@@ -1,4 +1,4 @@
-package com.example.data.remote
+package com.example.data.remote.apiservice
 
 import com.example.data.base.BasePaginationInfo
 import com.example.data.model.LocationDto

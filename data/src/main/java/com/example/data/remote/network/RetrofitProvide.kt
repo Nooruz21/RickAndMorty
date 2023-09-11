@@ -1,8 +1,8 @@
-package com.example.data
+package com.example.data.remote.network
 
-import com.example.data.remote.CharacterApiService
-import com.example.data.remote.EpisodeApiService
-import com.example.data.remote.LocationApiService
+import com.example.data.remote.apiservice.CharacterApiService
+import com.example.data.remote.apiservice.EpisodeApiService
+import com.example.data.remote.apiservice.LocationApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

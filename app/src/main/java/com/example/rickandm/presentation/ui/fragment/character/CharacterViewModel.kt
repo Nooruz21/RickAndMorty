@@ -10,7 +10,6 @@ class CharacterViewModel(private val fetchCharacterUseCase: CharactersUseCase) :
         status: String? = null,
         species: String? = null,
         gender: String? = null,
-    ) =
-        fetchCharacterUseCase(name, status, species, gender).collectPagingRequest { it.toUI() }
+    ) = fetchCharacterUseCase(name, status, species, gender).collectPagingRequest { it.toUI() }
 
 }

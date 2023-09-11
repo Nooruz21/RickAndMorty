@@ -2,7 +2,7 @@ package com.example.data.pagingsource
 
 import com.example.data.base.BasePagingSource
 import com.example.data.model.LocationDto
-import com.example.data.remote.LocationApiService
+import com.example.data.remote.apiservice.LocationApiService
 import com.example.domain.model.Location
 
 class LocationPagingSource(
