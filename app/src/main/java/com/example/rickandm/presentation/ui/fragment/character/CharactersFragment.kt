@@ -22,8 +22,7 @@ class CharactersFragment :
     override val binding by viewBinding(FragmentCharactersBinding::bind)
 
     private val adapter = CharactersAdapter()
-    private var characterFilter = CharacterSort()
-    private var characterName = String()
+
 
     override fun initialize() {
         setupRecyclerView()
@@ -42,26 +41,13 @@ class CharactersFragment :
                 return false
             }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    characterName = newText
-                    fetchCharacterSearchName(characterName)
-
-                } else fetchCharacterSearchName("")
+            override fun onQueryTextChange(newText: String): Boolean {
+               newText.let {
+                   viewModel.setCharacterName(newText)
+               }
                 return false
             }
         })
-    }
-
-    private fun fetchCharacterSearchName(name: String) {
-        viewModel.fetchCharacter(
-            name = name,
-            characterFilter.status,
-            characterFilter.species,
-            characterFilter.gender
-        ).collectPaging {
-            adapter.submitData(it)
-        }
     }
 
     private fun setupRecyclerView() = with(binding) {
@@ -89,19 +75,9 @@ class CharactersFragment :
         viewModel.fetchCharacter().collectPaging { adapter.submitData(it) }
     }
 
+
     private fun resultListener() {
         val filter = resultListener<CharacterSort>("filter")
-        characterFilter.status = filter?.status
-        characterFilter.species = filter?.species
-        characterFilter.gender = filter?.gender
-
-        viewModel.fetchCharacter(
-            name = characterName,
-            status = characterFilter.status,
-            species = characterFilter.species,
-            gender = characterFilter.gender
-        ).collectPaging { adapter.submitData(it) }
+        filter?.let { viewModel.setCharacterFilters(it) }
     }
-
-
 }

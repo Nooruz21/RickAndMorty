@@ -13,6 +13,7 @@ import androidx.paging.PagingData
 import androidx.viewbinding.ViewBinding
 import com.example.domain.utils.NetworkError
 import com.example.rickandm.presentation.ui.state.UIState
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -42,6 +43,35 @@ abstract class BaseFragment<ViewModel : BaseViewModel, Binding : ViewBinding>(
     protected open fun setupRequests() {}
 
     protected open fun setupSubscribers() {}
+    protected fun <T> StateFlow<UIState<T>>.collectUIState(
+        lifecycleState: Lifecycle.State = Lifecycle.State.STARTED,
+        state: ((UIState<T>) -> Unit)? = null,
+        onError: ((error: NetworkError) -> Unit),
+        onSuccess: ((data: T) -> Unit)
+    ) {
+        launchRepeatOnLifecycle(lifecycleState) {
+            this@collectUIState.collect {
+                state?.invoke(it)
+                when (it) {
+                    is UIState.Idle -> {}
+                    is UIState.Loading -> {}
+                    is UIState.Error -> onError.invoke(it.error)
+                    is UIState.Success -> onSuccess.invoke(it.data)
+                }
+            }
+        }
+    }
+
+    private fun launchRepeatOnLifecycle(
+        state: Lifecycle.State,
+        block: suspend CoroutineScope.() -> Unit
+    ) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(state) {
+                block()
+            }
+        }
+    }
 
 
     protected fun <T : Any> Flow<PagingData<T>>.collectPaging(

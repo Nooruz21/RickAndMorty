@@ -47,7 +47,7 @@ class EpisodeFragment :
     }
 
     private fun setupRecyclerView() = with(binding){
-        recyclerview.layoutManager = LinearLayoutManager(context)
+        recyclerview.layoutManager = LinearLayoutManager(requireContext())
         recyclerview.adapter = adapter.withLoadStateFooter(
             footer = LoadStateAdapter { adapter.retry() })
 

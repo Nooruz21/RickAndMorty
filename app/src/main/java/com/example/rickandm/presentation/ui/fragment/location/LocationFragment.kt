@@ -65,6 +65,4 @@ class LocationFragment :
     private fun fetchCharacter() {
         viewModel.fetchLocation().collectPaging { adapter.submitData(it) }
     }
-
-
 }
