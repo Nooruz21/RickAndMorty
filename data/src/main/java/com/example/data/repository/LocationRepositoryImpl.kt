@@ -1,7 +1,7 @@
 package com.example.data.repository
 
 import com.example.data.base.BaseDataRepository
-import com.example.data.pagingsource.LocationPagingSource
+import com.example.data.remote.pagingsource.LocationPagingSource
 import com.example.data.remote.apiservice.LocationApiService
 import com.example.domain.repository.LocationRepository
 

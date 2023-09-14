@@ -1,4 +1,4 @@
-package com.example.data.pagingsource
+package com.example.data.remote.pagingsource
 
 import com.example.data.base.BasePagingSource
 import com.example.data.model.EpisodeDto
