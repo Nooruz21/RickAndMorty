@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
-    tools:context=".presentation.ui.fragment.SortFragment">
+    tools:context=".presentation.ui.bottomsheet.SortFragment">
 
     <TextView
         android:id="@+id/tv_status"

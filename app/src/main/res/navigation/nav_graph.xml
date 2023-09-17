@@ -3,42 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/charactersFragment">
 
-    <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.example.rickandm.presentation.ui.fragment.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home">
-        <action
-            android:id="@+id/action_homeFragment_to_charactersFragment"
-            app:destination="@id/charactersFragment" />
-    </fragment>
     <fragment
         android:id="@+id/charactersFragment"
         android:name="com.example.rickandm.presentation.ui.fragment.character.CharactersFragment"
         android:label="fragment_characters"
-        tools:layout="@layout/fragment_characters" />
+        tools:layout="@layout/fragment_characters">
+        <action
+            android:id="@+id/action_charactersFragment_to_filterFragment"
+            app:destination="@id/filterFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/episodeFragment"
         android:name="com.example.rickandm.presentation.ui.fragment.episode.EpisodeFragment"
         android:label="fragment_episode"
         tools:layout="@layout/fragment_episode" />
+
     <fragment
         android:id="@+id/filterFragment"
-        android:name="com.example.rickandm.presentation.ui.fragment.SortFragment"
+        android:name="com.example.rickandm.presentation.ui.bottomsheet.SortFragment"
         android:label="fragment_filter"
-        tools:layout="@layout/fragment_sort">
-        <action
-            android:id="@+id/action_filterFragment_to_charactersFragment"
-            app:destination="@id/charactersFragment" />
-        <action
-            android:id="@+id/action_filterFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_sort" />
+
     <fragment
         android:id="@+id/locationFragment"
         android:name="com.example.rickandm.presentation.ui.fragment.location.LocationFragment"
         android:label="fragment_location"
         tools:layout="@layout/fragment_location" />
+
 </navigation>

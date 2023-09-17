@@ -1,4 +1,4 @@
-package com.example.rickandm.presentation.ui.fragment
+package com.example.rickandm.presentation.ui.bottomsheet
 
 import android.widget.RadioButton
 import androidx.navigation.fragment.findNavController
