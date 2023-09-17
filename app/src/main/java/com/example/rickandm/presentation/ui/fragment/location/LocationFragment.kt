@@ -11,9 +11,12 @@ import com.example.rickandm.databinding.FragmentLocationBinding
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.ui.adapter.LocationAdapter
 import com.example.rickandm.presentation.ui.adapter.paging.LoadStateAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
-class LocationFragment :
-    BaseFragment<LocationViewModel, FragmentLocationBinding>(R.layout.fragment_location) {
+@AndroidEntryPoint
+class LocationFragment : BaseFragment<LocationViewModel, FragmentLocationBinding>(
+    R.layout.fragment_location
+) {
 
     override val viewModel: LocationViewModel by viewModels()
     override val binding by viewBinding(FragmentLocationBinding::bind)

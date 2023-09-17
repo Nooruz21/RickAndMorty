@@ -3,12 +3,14 @@ package com.example.rickandm.presentation.ui.fragment.character
 import com.example.domain.model.CharacterSort
 import com.example.domain.usecase.CharactersUseCase
 import com.example.rickandm.presentation.base.BaseViewModel
-import com.example.rickandm.presentation.ui.models.CharacterUI
 import com.example.rickandm.presentation.ui.models.toUI
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CharacterViewModel(private val fetchCharacterUseCase: CharactersUseCase) : BaseViewModel() {
+@HiltViewModel
+class CharacterViewModel @Inject constructor(
+    private val fetchCharacterUseCase: CharactersUseCase
+) : BaseViewModel() {
 
     private var characterFilter = CharacterSort()
     private var characterName = ""

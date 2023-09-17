@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 abstract class BaseBottomSheetDialog<VB : ViewBinding>(
     @LayoutRes private val layoutId: Int
 ) : BottomSheetDialogFragment() {
+
     protected abstract val binding: VB
 
     override fun onCreateView(
@@ -19,7 +20,7 @@ abstract class BaseBottomSheetDialog<VB : ViewBinding>(
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_sort, container, false)
+        return inflater.inflate(layoutId, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -11,7 +11,9 @@ import com.example.rickandm.databinding.FragmentEpisodeBinding
 import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.ui.adapter.EpisodeAdapter
 import com.example.rickandm.presentation.ui.adapter.paging.LoadStateAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class EpisodeFragment :
     BaseFragment<EpisodeViewModel, FragmentEpisodeBinding>(R.layout.fragment_episode) {
 

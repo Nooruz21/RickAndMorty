@@ -1,4 +1,4 @@
-package com.example.data.model
+package com.example.data.remote.dto
 
 import com.example.data.mapper.DataMapper
 import com.example.domain.model.LocationC

@@ -1,7 +1,7 @@
 package com.example.data.remote.pagingsource
 
 import com.example.data.base.BasePagingSource
-import com.example.data.model.CharacterDto
+import com.example.data.remote.dto.CharacterDto
 import com.example.data.remote.apiservice.CharacterApiService
 import com.example.domain.model.Character
 

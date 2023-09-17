@@ -6,8 +6,11 @@ import com.example.rickandm.databinding.FragmentHomeBinding
 import com.example.rickandm.presentation.base.BaseFragmentWithoutViewModel
 import com.example.rickandm.presentation.ui.adapter.HomeViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : BaseFragmentWithoutViewModel<FragmentHomeBinding>(R.layout.fragment_home) {
+
     override val binding by viewBinding(FragmentHomeBinding::bind)
 
     override fun setupListeners() {

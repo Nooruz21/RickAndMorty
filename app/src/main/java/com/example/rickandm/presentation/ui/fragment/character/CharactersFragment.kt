@@ -14,15 +14,17 @@ import com.example.rickandm.presentation.base.BaseFragment
 import com.example.rickandm.presentation.ui.adapter.CharactersAdapter
 import com.example.rickandm.presentation.ui.adapter.paging.LoadStateAdapter
 import com.example.rickandm.presentation.ui.ext.resultListener
+import dagger.hilt.android.AndroidEntryPoint
 
-class CharactersFragment :
-    BaseFragment<CharacterViewModel, FragmentCharactersBinding>(R.layout.fragment_characters) {
+@AndroidEntryPoint
+class CharactersFragment : BaseFragment<CharacterViewModel, FragmentCharactersBinding>(
+    R.layout.fragment_characters
+) {
 
     override val viewModel: CharacterViewModel by viewModels()
     override val binding by viewBinding(FragmentCharactersBinding::bind)
 
     private val adapter = CharactersAdapter()
-
 
     override fun initialize() {
         setupRecyclerView()

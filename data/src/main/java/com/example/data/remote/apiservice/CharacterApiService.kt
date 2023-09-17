@@ -1,9 +1,8 @@
 package com.example.data.remote.apiservice
 
 import com.example.data.base.BasePaginationInfo
-import com.example.data.model.CharacterDto
+import com.example.data.remote.dto.CharacterDto
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface CharacterApiService {
